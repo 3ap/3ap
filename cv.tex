@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[hidelinks]{resume} % Use the custom resume.cls style
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{cmap}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[left=0.75in,top=0.3in,right=0.75in,bottom=0.1in]{geometry} % Document margins
+\usepackage{hyperref}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks=true,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black},
+    linkbordercolor={blue!80!black}
+}
+
+\name{Сергей Назарьев, 21 год} % Your name
+
+\begin{document}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Личный сайт& \href{http://nazaryev.ru}{nazaryev.ru} \\
+Электронная почта& \href{mailto:sergey@nazaryev.ru}{sergey@nazaryev.ru} \\
+Контактный телефон& +7 (931) 225-74-28
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Навыки}
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Языки программирования& \underline{C}, \underline{POSIX shell}, Python, C\#, Java, PHP, Lua, x86 Assembly \\
+Системы контроля версий& Git, Subversion \\
+Сборка& \underline{GNU make}, \underline{Buildroot}, GNU Autotools, Jenkins, GitLab CI\\
+Дистрибутивы& \underline{Debian}, \underline{Arch Linux}\\
+Языки разметки& \underline{Markdown}, \LaTeX, HTML5/CSS3 \\
+Серверное ПО& nginx, Apache \\
+Другое ПО& \underline{vim}, strace, gdb, Puppet\\
+Дополнительные навыки& чувство вкуса, любовь к поиску уязвимостей\\
+Владение языками& русский, технический английский\\
+\end{tabular}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Образование}
+
+{\bf Университет ИТМО (СПбНИУ ИТМО)} \hfill {\em Сентябрь 2013 - Июль 2017} \\
+Бакалавр. Информатика и вычислительная техника
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Опыт работы}
+
+%------------------------------------------------
+
+\begin{rSubsection}{\href{http://protei-st.ru}{НТЦ Протей}, решения для телекоммуникационных сетей}{\em Июль 2016 - настоящее время}{Embedded Linux BSP Developer}{Санкт-Петербург}
+\item Разработка дистрибутива на основе Buildroot для устройств собственной разработки;
+\item Портирование, правка и разработка драйверов Linux;
+\item Доработка и конфигурирование U-Boot для ARM (i.MX6);
+\item Автоматизация сборки с помощью GitLab CI и Docker;
+\item Адаптация дистрибутивов (Astra Linux, МСВС) для существующих и новых аппаратных платформ;
+\item Оптимизация процесса разворачивания прошивок (ОС и ПО) на новые устройства;
+\item Помощь в отладке и устранении программно-аппаратных багов.
+\end{rSubsection}
+
+%------------------------------------------------
+
+\begin{rSubsection}{\href{http://metrotek.spb.ru}{НТЦ Метротек}, сетевое оборудование}{\em Февраль 2015 - Июнь 2016}{Системный программист Linux}{Санкт-Петербург}
+\item Разработка системного ПО на С для взаимодействия с FPGA (Cyclone 5) и периферией;
+\item Разработка прикладного ПО на С для тестирования сетевого оборудования (RFC 2544, Y.1564);
+\item Портирование программного обеспечения с bare metal (AVR) на GNU/Linux (ARM);
+\item Разработка BSP на основе Debian GNU/Linux для приборов собственной разработки;
+\item Модификация прошивки Android для измерительного прибора;
+\item Организация «чистой сборки» и пакетирования ПО под Debian GNU/Linux;
+\item Автоматизация сборки с помощью Jenkins и Puppet.
+\end{rSubsection}
+
+%------------------------------------------------
+
+\begin{rSubsection}{\href{http://mobiumapps.com}{Mobium}, генератор мобильных приложений}{\em Февраль 2014 - Сентябрь
+2014}{Android-разработчик}{Санкт-Петербург}
+\item Разработка ПО на заказ под Android;
+\item Разработка панели управления на ASP.NET MVC.
+\end{rSubsection}
+
+%------------------------------------------------
+
+\begin{rSubsection}{Firepush, стартап}{\em Август 2013 - Февраль 2014}{Программист}{Санкт-Петербург}
+\item Разработка генератора приложений под Android;
+\item Разработка модуля рекламы для встраивания в приложения Android;
+\item Aдминистрирование серверов на Debian GNU/Linux.
+\end{rSubsection}
+
+%------------------------------------------------
+
+\begin{rSubsection}{\href{http://nopreset.ru}{Nopreset}, web-студия}{\em Май 2012 - Сентябрь 2012}{PHP-программист, стажёр}{Саратов}
+\item Разработка backend на базе CMF MODx Revo/Evo (PHP).
+\end{rSubsection}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
