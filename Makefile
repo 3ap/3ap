@@ -1,7 +1,9 @@
-all: cv.pdf
+TARGET = resume.pdf
 
-cv.pdf: cv.tex resume.cls
+all: $(TARGET)
+
+$(TARGET): resume.tex resume.cls
 	pdflatex $< --jobname=$@
 
 clean:
-	rm -f cv.aux cv.log cv.out cv.pdf
+	rm -f *.aux *.log *.out $(TARGET)
