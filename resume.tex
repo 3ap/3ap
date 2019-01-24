@@ -21,14 +21,16 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[hidelinks]{resume} % Use the custom resume.cls style
-\usepackage[utf8]{inputenc}
-\usepackage[english,russian]{babel}
-\usepackage{cmap}
+\usepackage{fontspec}% provides font selecting commands
+\usepackage{xunicode}% provides unicode character macros
+\usepackage{xltxtra} % provides some fixes/extras
+\usepackage{setspace}
+\setmainfont{Roboto}
 
-\renewcommand{\familydefault}{\sfdefault}
-
-\usepackage[left=0.75in,top=0.3in,right=0.75in,bottom=0.1in]{geometry} % Document margins
+\usepackage[left=0.35in,top=0.2in,right=0.75in,bottom=0.2in]{geometry} % Document margins
 \usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 \usepackage{xcolor}
 \hypersetup{
@@ -39,32 +41,53 @@
     linkbordercolor={blue!80!black}
 }
 
-\name{Сергей Назарьев, 21 год} % Your name
+% Обязательно переносить слова, чтобы соблюсти поля документа. Для
+% соблюдения полей можно пренебречь правилами для тех слов и
+% словосочетаний, о которых не знают словаря переносов (ruhyphen или
+% ruenhyph). Оно почему-то работает. Взято с:
+%
+%   http://www.latex-community.org/forum/viewtopic.php?p=70342#p70342
+%
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
 
 \begin{document}
 
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Личный сайт& \href{http://nazaryev.ru}{nazaryev.ru} \\
-Электронная почта& \href{mailto:sergey@nazaryev.ru}{sergey@nazaryev.ru} \\
-Контактный телефон& +7 (931) 225-74-28
-\end{tabular}
+%\begin{minipage}[c]{0.18\textwidth}
+%      \includegraphics[width=0.9\textwidth]{portrait}
+%\end{minipage}%
+%\begin{minipage}[c]{0.82\textwidth}
+{\large \bf Сергей Назарьев,
+\href{mailto:sergey@nazaryev.ru}{sergey@nazaryev.ru} \vspace{2mm}} \\
+{\small Я хорошо разбираюсь в том, как работают и взаимодействуют
+основные части Linux'а (процесс загрузки, система инициализации,
+супервайзинг, сеть, различные виды IPC и др.), понимаю принципы
+работы сетей, умею работать с системами контроля версий, с
+баг-трекерами и всем, что требует сейчас от разработчика индустрия.}
+%\end{minipage}
 
 %----------------------------------------------------------------------------------------
 %	TECHNICAL STRENGTHS SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{rSection}{Навыки}
+\begin{rSection}{Навыки (подчёркнуты основные навыки)}
+{\setstretch{1.3}
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Языки программирования& \underline{C}, \underline{POSIX shell}, Python, C\#, Java, PHP, Lua, x86 Assembly \\
+Активно программирую на& \underline{C} и \underline{POSIX shell} \\
+Имел опыт программирования на& Python, C\#, Java, PHP, Lua \\
 Системы контроля версий& Git, Subversion \\
-Сборка& \underline{GNU make}, \underline{Buildroot}, GNU Autotools, Jenkins, GitLab CI\\
-Дистрибутивы& \underline{Debian}, \underline{Arch Linux}\\
+Сборка& \underline{GNU make}, \underline{Jenkins}, GitLab CI\\
+Дистрибутивы& \underline{Debian}, \underline{Arch Linux}, \underline{Buildroot}, Yocto\\
 Языки разметки& \underline{Markdown}, \LaTeX, HTML5/CSS3 \\
-Серверное ПО& nginx, Apache \\
-Другое ПО& \underline{vim}, strace, gdb, Puppet\\
-Дополнительные навыки& чувство вкуса, любовь к поиску уязвимостей\\
-Владение языками& русский, технический английский\\
+Другое& \underline{vim}, docker\\
+Владение языками& русский, английский (чтение технической литературы)\\
 \end{tabular}
+}
 
 \end{rSection}
 
@@ -74,7 +97,7 @@
 
 \begin{rSection}{Образование}
 
-{\bf Университет ИТМО (СПбНИУ ИТМО)} \hfill {\em Сентябрь 2013 - Июль 2017} \\
+{\bf Университет ИТМО (СПбНИУ ИТМО)} \hfill {\em сентябрь 2013 -- июль 2017} \\
 Бакалавр. Информатика и вычислительная техника
 \end{rSection}
 
@@ -82,52 +105,47 @@
 %	WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{rSection}{Опыт работы}
+\begin{rSection}{Опыт работы (3+ года опыта)}
 
 %------------------------------------------------
 
-\begin{rSubsection}{\href{http://protei-st.ru}{НТЦ Протей}, решения для телекоммуникационных сетей}{\em Июль 2016 - настоящее время}{Embedded Linux BSP Developer}{Санкт-Петербург}
-\item Разработка дистрибутива на основе Buildroot для устройств собственной разработки;
-\item Портирование, правка и разработка драйверов Linux;
-\item Доработка и конфигурирование U-Boot для ARM (i.MX6);
-\item Автоматизация сборки с помощью GitLab CI и Docker;
-\item Адаптация дистрибутивов (Astra Linux, МСВС) для существующих и новых аппаратных платформ;
-\item Оптимизация процесса разворачивания прошивок (ОС и ПО) на новые устройства;
-\item Помощь в отладке и устранении программно-аппаратных багов.
+\begin{rSubsection}{\href{http://protei-st.ru}{Протей СТ}, решения для телекоммуникационных сетей}{\em июль 2016 -- сентябрь 2018 (2 года 2 месяца)}{Инженер Linux (embedded)}{Санкт-Петербург}
+\item Принимал участие в проектировании и разработке in-house дистрибутива на основе Buildroot для созданных компанией устройств (x86, ARM);
+\item Портировал и дорабатывал драйвера, в редких случаях писал небольшие драйвера для Linux и U-Boot с нуля;
+\item Активно помогал «железячникам», QA и прикладным программистам в локализации и исправлении программно-аппаратных багов;
+\item Оптимизировал процесс разворачивания ОС и прикладного ПО на новые устройства;
+\item Адаптировал российские дистрибутивы (Astra Linux, МСВС) для их корректной работы на устройствах, разработанных компанией;
+\item Внедрил в компании единые правила автоматизации сборки с помощью Jenkins, GitLab CI и Docker;
+\item Консультировал прикладных программистов и принимал участие в разработке тех. процесса подготовки исходных текстов для прохождения сертификации ФСТЭК, МО РФ.
 \end{rSubsection}
 
 %------------------------------------------------
 
-\begin{rSubsection}{\href{http://metrotek.spb.ru}{НТЦ Метротек}, сетевое оборудование}{\em Февраль 2015 - Июнь 2016}{Системный программист Linux}{Санкт-Петербург}
-\item Разработка системного ПО на С для взаимодействия с FPGA (Cyclone 5) и периферией;
-\item Разработка прикладного ПО на С для тестирования сетевого оборудования (RFC 2544, Y.1564);
-\item Портирование программного обеспечения с bare metal (AVR) на GNU/Linux (ARM);
-\item Разработка BSP на основе Debian GNU/Linux для приборов собственной разработки;
-\item Модификация прошивки Android для измерительного прибора;
-\item Организация «чистой сборки» и пакетирования ПО под Debian GNU/Linux;
-\item Автоматизация сборки с помощью Jenkins и Puppet.
+\begin{rSubsection}{\href{http://ntc.metrotek.ru}{НТЦ Метротек}, сетевое оборудование}{\em февраль 2015 -- июнь 2016 (1 год 5 месяцев)}{Системный программист Linux (embedded)}{Санкт-Петербург}
+\item Успешно спортировал прикладное ПО с RTOS (AVR) на GNU/Linux (ARM);
+\item Доработал Debian GNU/Linux для запуска на приборах производства компании;
+\item Внедрил в компании автоматизацию «чистой сборки» ПО с помощью Jenkins и Puppet;
+\item Помогал в пакетировании прикладного ПО под Debian GNU/Linux.
 \end{rSubsection}
 
 %------------------------------------------------
 
-\begin{rSubsection}{\href{http://mobiumapps.com}{Mobium}, генератор мобильных приложений}{\em Февраль 2014 - Сентябрь
-2014}{Android-разработчик}{Санкт-Петербург}
-\item Разработка ПО на заказ под Android;
-\item Разработка панели управления на ASP.NET MVC.
+\begin{rSubsection}{\href{http://mobiumapps.com}{Mobium}, генератор мобильных приложений}{\em февраль 2014 --  август 2014 (7 месяцев)}{Android-разработчик}{Санкт-Петербург}
+\item Дорабатывал Android-приложение для компании 220 Вольт;
+\item Дорабатывал панель управления на ASP.NET MVC.
 \end{rSubsection}
 
 %------------------------------------------------
 
-\begin{rSubsection}{Firepush, стартап}{\em Август 2013 - Февраль 2014}{Программист}{Санкт-Петербург}
-\item Разработка генератора приложений под Android;
-\item Разработка модуля рекламы для встраивания в приложения Android;
-\item Aдминистрирование серверов на Debian GNU/Linux.
+\begin{rSubsection}{Firepush, стартап}{\em август 2013 -- февраль 2014 (7 месяцев)}{Android-разработчик, part-time}{Санкт-Петербург}
+\item Разработал генератор типовых Android-приложений на Python + PyQt;
+\item Разработал модуль показа рекламы для встраивания в third-party приложения Android.
 \end{rSubsection}
 
 %------------------------------------------------
 
-\begin{rSubsection}{\href{http://nopreset.ru}{Nopreset}, web-студия}{\em Май 2012 - Сентябрь 2012}{PHP-программист, стажёр}{Саратов}
-\item Разработка backend на базе CMF MODx Revo/Evo (PHP).
+\begin{rSubsection}{\href{http://nopreset.ru}{Nopreset}, web-студия}{\em май 2012 -- сентябрь 2012 (4 месяца)}{PHP-программист, летняя стажировка}{Саратов}
+\item Разработал backend сайтов на базе CMF MODx Revo/Evo (PHP): \href{http://cpt-yurcom.ru}{cpt-yurcom.ru}, \href{http://okean-tur.ru}{okean-tur.ru}, \href{http://pioner-kino.ru}{pioner-kino.ru}
 \end{rSubsection}
 \end{rSection}
 
