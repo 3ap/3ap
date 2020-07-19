@@ -17,22 +17,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%       PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-
+%
 \documentclass[hidelinks]{resume} % Use the custom resume.cls style
-\usepackage{fontspec}% provides font selecting commands
-\usepackage{xunicode}% provides unicode character macros
-\usepackage{xltxtra} % provides some fixes/extras
 \usepackage{setspace}
-\setmainfont{Roboto}
+\renewcommand{\familydefault}{lmss}
 
-\usepackage[left=0.35in,top=0.2in,right=0.75in,bottom=0.2in]{geometry} % Document margins
+\usepackage[left=0.35in,top=8mm,right=0.75in,bottom=0.0in]{geometry} % Document margins
 \usepackage{hyperref}
-\usepackage{graphicx}
-\graphicspath{ {./images/} }
+\usepackage{tabularx}
+\usepackage{fontawesome}
+\usepackage{enumitem}
+\usepackage[x11names,table]{xcolor}
+\renewcommand\labelitemi{$\cdot$}
 
-\usepackage{xcolor}
 \hypersetup{
     colorlinks=true,
     linkcolor={red!50!black},
@@ -56,99 +55,115 @@
 \vfuzz \hfuzz
 \raggedbottom
 
+\newcommand{\timeline}{\color{LightSteelBlue3}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+\renewcommand*{\faicon}[1]{\makebox[1em][c]{\csname faicon@#1\endcsname}}
+
 \begin{document}
 
-%\begin{minipage}[c]{0.18\textwidth}
-%      \includegraphics[width=0.9\textwidth]{portrait}
-%\end{minipage}%
-%\begin{minipage}[c]{0.82\textwidth}
-{\large \bf Сергей Назарьев,
-\href{mailto:sergey@nazaryev.ru}{sergey@nazaryev.ru} \vspace{2mm}} \\
-{\small Я хорошо разбираюсь в том, как работают и взаимодействуют
-основные части Linux'а (процесс загрузки, система инициализации,
-супервайзинг, сеть, различные виды IPC и др.), понимаю принципы
-работы сетей, умею работать с системами контроля версий, с
-баг-трекерами и всем, что требует сейчас от разработчика индустрия.}
-%\end{minipage}
+\begin{minipage}[t]{0.80\textwidth}
+{\Huge \textbf{Sergey Nazaryev}}\vspace{2mm}\\
+{Embedded Linux Engineer, 23 y.o.}\\
+{Be'er Sheva, Israel \vspace{2mm}}\\
+
+\end{minipage}
+\begin{minipage}[t]{0.20\textwidth}
+\vspace{-5mm}
+{\small \faEnvelopeO} {\small \href{mailto:sergey@nazaryev.ru}{sergey@nazaryev.ru}}\\
+{\small \faLinkedin} {\small \href{https://www.linkedin.com/in/nazaryev-s/}{nazaryev-s}}\\
+{\small \faLink} {\small \href{https://nazaryev.ru}{nazaryev.ru}}
+\end{minipage} \vspace{-7mm}
+
+{\small
+4 years as Embedded Linux Developer, 6 years total as a developer.\\
+Looking for an Embedded Linux-related position.
+}
 
 %----------------------------------------------------------------------------------------
-%	TECHNICAL STRENGTHS SECTION
+%       WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{rSection}{Навыки (подчёркнуты основные навыки)}
+\sectionskip
+\MakeUppercase{\bf Work experience}
+\sectionlineskip
+\hrule
+
+\begin{table}[!htbp]
+\begin{tabularx}{\textwidth}{@{\,}r <{\hskip 2pt} !{\timeline} >{\raggedright\arraybackslash}p{17cm}}
+2019 &
+\textbf{Embedded Linux Platform Engineer @\ \href{http://cogentembedded.com}{Cogent Embedded}}
+
+{\small {Embedded automotive software}\vspace{2mm} / 2018 -- 2019}
+
+\begin{itemize}[leftmargin=1em]
+\item Maintained Yocto layers for in-house Linux distro based on Yocto Project;
+\item Improved deployment speed of OS and applications to new devices;
+\item Organized reproducible builds for software using Jenkins;
+\item Documented firmware deployment to new devices.
+\end{itemize}\vspace{2mm}
+{\small {Yocto Project, Automotive Grade Linux, Qt 5, C/C++, POSIX shell, Renesas R-Car, Jenkins}}
+\vspace{5mm}\\
+
+2016 &
+\textbf{Embedded Linux Engineer @\ \href{http://protei.com}{Protei}}
+
+{\small {Telecommunications solutions}\vspace{2mm} / 2016 -- 2018}
+
+\begin{itemize}[leftmargin=1em]
+\item Participated in R\&D of in-house Linux distro based on Buildroot for devices made by company;
+\item Ported and fixed drivers for Linux and U-boot, sometimes developed small drivers from scratch;
+\item Helped HW engineers with fixing bugs related to SW/HW interactions;
+\item Created and supervised building process using Jenkins, GitLab CI and Docker.
+\end{itemize}\vspace{2mm}
+{\small {Freescale i.MX6 / x86, Qt 5, Debian GNU/Linux, C, POSIX shell, Python, Buildroot, Jenkins, Docker}}
+\vspace{5mm}\\
+
+2015 &
+\textbf{Embedded Linux Developer @\ \href{http://metrotek.center}{NTC Metrotek}}
+
+{\small {Networking hardware}\vspace{2mm} / 2015 -- 2016}
+
+\begin{itemize}[leftmargin=1em]
+\item Ported application from Nut/OS (AVR) to GNU/Linux (ARM);
+\item Adapted Debian GNU/Linux for running on devices created by company;
+\item Helped with packaging software for Debian GNU/Linux.
+\end{itemize}\vspace{2mm}
+{\small {Altera Cyclone V, Debian GNU/Linux, C, Python, POSIX Shell, Jenkins}}
+\vspace{5mm}\\
+
+2014 &
+\textbf{Junior Android Developer @\
+    \href{http://mobiumapps.com/}{Mobium}} \textit{(Android e-commerce apps development)}\\
+\end{tabularx}
+\end{table}
+
+%----------------------------------------------------------------------------------------
+%       TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Skills (most important are underlined)}
 {\setstretch{1.3}
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Активно программирую на& \underline{C} и \underline{POSIX shell} \\
-Имел опыт программирования на& Python, C\#, Java, PHP, Lua \\
-Системы контроля версий& Git, Subversion \\
-Сборка& \underline{GNU make}, \underline{Jenkins}, GitLab CI\\
-Дистрибутивы& \underline{Debian}, \underline{Arch Linux}, \underline{Buildroot}, Yocto\\
-Языки разметки& \underline{Markdown}, \LaTeX, HTML5/CSS3 \\
-Другое& \underline{vim}, docker\\
-Владение языками& русский, английский (чтение технической литературы)\\
+Primary languages for me & \underline{C} and \underline{POSIX shell} \\
+Have experience with & Python, Java (Android) \\
+VCS & Git, Subversion \\
+Build tools & \underline{GNU make}, \underline{Jenkins}, GitLab CI\\
+Linux distros & \underline{Debian}, \underline{Arch Linux}, \underline{Buildroot}, Yocto\\
+Other & \underline{Vim}, \underline{Markdown}, \LaTeX, HTML5/CSS3, Docker\\
+Languages&  English, Hebrew (elementary), Russian\\
 \end{tabular}
 }
 
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
+%       EDUCATION SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{rSection}{Образование}
+\begin{rSection}{Education}
 
-{\bf Университет ИТМО (СПбНИУ ИТМО)} \hfill {\em сентябрь 2013 -- июль 2017} \\
-Бакалавр. Информатика и вычислительная техника
+{\href{https://en.itmo.ru/}{\textbf{ITMO University (Information Technologies, Mechanics and Optics)}}} \hfill {} \\
+B.Sc., Embedded Systems / 2013 -- 2017
 \end{rSection}
 
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE SECTION
-%----------------------------------------------------------------------------------------
-
-\begin{rSection}{Опыт работы (3+ года опыта)}
-
-%------------------------------------------------
-
-\begin{rSubsection}{\href{http://protei-st.ru}{Протей СТ}, решения для телекоммуникационных сетей}{\em июль 2016 -- сентябрь 2018 (2 года 2 месяца)}{Инженер Linux (embedded)}{Санкт-Петербург}
-\item Принимал участие в проектировании и разработке in-house дистрибутива на основе Buildroot для созданных компанией устройств (x86, ARM);
-\item Портировал и дорабатывал драйвера, в редких случаях писал небольшие драйвера для Linux и U-Boot с нуля;
-\item Активно помогал «железячникам», QA и прикладным программистам в локализации и исправлении программно-аппаратных багов;
-\item Оптимизировал процесс разворачивания ОС и прикладного ПО на новые устройства;
-\item Адаптировал российские дистрибутивы (Astra Linux, МСВС) для их корректной работы на устройствах, разработанных компанией;
-\item Внедрил в компании единые правила автоматизации сборки с помощью Jenkins, GitLab CI и Docker;
-\item Консультировал прикладных программистов и принимал участие в разработке тех. процесса подготовки исходных текстов для прохождения сертификации ФСТЭК, МО РФ.
-\end{rSubsection}
-
-%------------------------------------------------
-
-\begin{rSubsection}{\href{http://ntc.metrotek.ru}{НТЦ Метротек}, сетевое оборудование}{\em февраль 2015 -- июнь 2016 (1 год 5 месяцев)}{Системный программист Linux (embedded)}{Санкт-Петербург}
-\item Успешно спортировал прикладное ПО с RTOS (AVR) на GNU/Linux (ARM);
-\item Доработал Debian GNU/Linux для запуска на приборах производства компании;
-\item Внедрил в компании автоматизацию «чистой сборки» ПО с помощью Jenkins и Puppet;
-\item Помогал в пакетировании прикладного ПО под Debian GNU/Linux.
-\end{rSubsection}
-
-%------------------------------------------------
-
-\begin{rSubsection}{\href{http://mobiumapps.com}{Mobium}, генератор мобильных приложений}{\em февраль 2014 --  август 2014 (7 месяцев)}{Android-разработчик}{Санкт-Петербург}
-\item Дорабатывал Android-приложение для компании 220 Вольт;
-\item Дорабатывал панель управления на ASP.NET MVC.
-\end{rSubsection}
-
-%------------------------------------------------
-
-\begin{rSubsection}{Firepush, стартап}{\em август 2013 -- февраль 2014 (7 месяцев)}{Android-разработчик, part-time}{Санкт-Петербург}
-\item Разработал генератор типовых Android-приложений на Python + PyQt;
-\item Разработал модуль показа рекламы для встраивания в third-party приложения Android.
-\end{rSubsection}
-
-%------------------------------------------------
-
-\begin{rSubsection}{\href{http://nopreset.ru}{Nopreset}, web-студия}{\em май 2012 -- сентябрь 2012 (4 месяца)}{PHP-программист, летняя стажировка}{Саратов}
-\item Разработал backend сайтов на базе CMF MODx Revo/Evo (PHP): \href{http://cpt-yurcom.ru}{cpt-yurcom.ru}, \href{http://okean-tur.ru}{okean-tur.ru}, \href{http://pioner-kino.ru}{pioner-kino.ru}
-\end{rSubsection}
-\end{rSection}
-
-%----------------------------------------------------------------------------------------
 
 \end{document}
